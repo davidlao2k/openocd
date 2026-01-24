@@ -242,6 +242,7 @@
 #define LPC4078        0x47193F47
 #define LPC4088        0x481D3F47
 
+#define LPC804_101	   0x00008044
 #define LPC810_021     0x00008100
 #define LPC811_001     0x00008110
 #define LPC812_101     0x00008120
@@ -735,7 +736,7 @@ static int lpc2000_iap_call(struct flash_bank *bank, struct working_area *iap_wo
 		case LPC_AUTO:
 			armv7m_info.common_magic = ARMV7M_COMMON_MAGIC;
 			armv7m_info.core_mode = ARM_MODE_THREAD;
-			iap_entry_point = 0x1fff1ff1;
+			iap_entry_point = 0x0F001FF1;
 			break;
 		case LPC1500:
 		case LPC54100:
@@ -1473,6 +1474,7 @@ static int lpc2000_auto_probe_flash(struct flash_bank *bank)
 			bank->size = 16 * 1024;
 			break;
 
+		case LPC804_101:
 		case LPC824_201:
 		case LPC824_201_1:
 			lpc2000_info->variant = LPC800;
