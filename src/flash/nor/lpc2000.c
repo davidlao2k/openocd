@@ -736,7 +736,7 @@ static int lpc2000_iap_call(struct flash_bank *bank, struct working_area *iap_wo
 		case LPC_AUTO:
 			armv7m_info.common_magic = ARMV7M_COMMON_MAGIC;
 			armv7m_info.core_mode = ARM_MODE_THREAD;
-			iap_entry_point = 0x0F001FF1;
+			iap_entry_point = 0x1fff1ff1;
 			break;
 		case LPC1500:
 		case LPC54100:
